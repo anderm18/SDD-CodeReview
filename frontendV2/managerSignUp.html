@@ -1,0 +1,91 @@
+<!-- Chris He, 2022 -->
+<!-- chris@maigod.net -->
+<!-- Potential Features to be Added: -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laundry Management Tool</title>
+    <link rel = "stylesheet" href = "Resource/css/style.css">
+    <link rel = "stylesheet" href = "Resource/css/footer.css">
+    <link rel = "stylesheet" href = "Resource/css/login.css">
+    <link rel = "stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+
+</head>
+<body>
+    <div id="bbContainer">
+        <div id="header_container"></div>
+
+        <!-- -------------------------------------------------------------------------------------------------- -->
+        <!--ADD YOUR CODE HERE  -->
+        <div id="article">
+            <div class="user">
+                <header class="user__header">
+                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3219/logo.svg" alt="" />
+                    <h1 class="user__title">Manager Sign Up</h1>
+                </header>
+                
+                <form class="form">
+                    <div class="form__group">
+                        <input type="text" placeholder="Username" class="form__input" id ="username" />
+                    </div>
+                    
+                    <div class="form__group">
+                        <input type="password" placeholder="Password" class="form__input" id ="password" />
+                    </div>
+
+                    <div class="form__group">
+                        <input type="text" placeholder="Site Name" class="form__input" id ="siteName" />
+                    </div>
+                    
+                    <button class="btn" type="button" onclick = register()>Register</button>
+                </form>
+            </div>
+        </div>
+        <!-- -------------------------------------------------------------------------------------------------- -->
+
+        <div id = "footer_container"></div>
+    </div>
+
+    <div id="bg-model"></div>
+
+    <script>
+        function register(){
+            let username = document.getElementById("username").value;
+            let password = document.getElementById("password").value;
+            let siteName = document.getElementById("siteName").value;
+            
+            let info = [username,password,1];
+
+            $.ajax({
+                type: "POST",
+                // data: {username:'yogesh',password: 'FASDF',site_post: 'site1'},
+                url:"http://127.0.0.1:5000/register?username=" + username + "&password=" + password + "&site_post=" + siteName,
+                success:function(msg){
+                    let infoExist = msg["exists"];
+                    let notSuccess = msg["success"];
+
+                    if(notSuccess){
+                        alert("username/password/sitename already exist");
+                    }else{
+                        alert("account created successfully");
+                        window.location.assign("managerLogin.html");
+                    }
+                }
+            })
+        }
+    </script>
+
+    <script type="text/javascript" src="Resource/js/jquery-3.6.1.min.js"></script>
+    <script type="text/javascript" src="Resource/js/script.js"></script>
+
+
+
+
+</body>
+</html>

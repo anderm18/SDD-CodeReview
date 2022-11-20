@@ -1,0 +1,54 @@
+<!-- Chris He, 2022 -->
+<!-- chris@maigod.net -->
+<!-- Potential Features to be Added: -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laundry Management Tool</title>
+    <link rel = "stylesheet" href = "Resource/css/style.css">
+    <link rel = "stylesheet" href = "Resource/css/footer.css">
+    <link rel = "stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+</head>
+<body>
+    <div id="bbContainer">
+        <div id="header_container"></div>
+        
+        <!-- -------------------------------------------------------------------------------------------------- -->
+        <!--ADD YOUR CODE HERE  -->
+        <div id="article">
+            place your code here
+        </div>
+        <!-- -------------------------------------------------------------------------------------------------- -->
+
+        <div id = "footer_container"></div>
+
+    <div id="bg-model"></div>
+
+    <script>
+        function func(){
+            document.getElementById("bg-model").style.display = "flex";
+        }
+
+        var cont = document.getElementById("bg-model");
+        cont.addEventListener("click",function(event){
+            // console.log([...event.target.classList].indexOf('PT'));
+            if([...event.target.classList].indexOf('PT') === -1){
+                document.getElementById("bg-model").style.display = "none";
+            };
+        })
+    </script>
+
+
+    <script type="text/javascript" src="Resource/js/jquery-3.6.1.min.js"></script>
+    <script type="text/javascript" src="Resource/js/script.js"></script>
+
+
+
+</body>
+</html>
